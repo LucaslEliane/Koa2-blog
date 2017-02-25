@@ -4,10 +4,10 @@ div(class="nav-setting")
             i(class="icon bars")
             div(class="menu")
                 if user
-                    a(class="item" href="/posts?author="+#{user.id})个人主页
+                    a(class="item" href="/posts?author="+ user.id) 个人主页
                     div(class="divider")
-                    a(class="item" href="/posts/create")发表文章
-                    a(class="item" href="/signout")登出
+                    a(class="item" href="/posts/create") 发表文章
+                    a(class="item" href="/signout") 登出
                 else
-                    a(class="item" href="/signin")登录
-                    a(class="item" href="/signup")注册
+                    a(class="item" href="/signin") 登录
+                    a(class="item" href="/signup") 注册

@@ -10,8 +10,13 @@
   "license": "MIT",
   "devDependencies": {
     "config-lite": "^1.5.0",
+    "koa-body": "2",
+    "koa-bodyparser": "3.2.0",
     "koa-convert": "^1.2.0",
+    "koa-favicon": "^1.2.1",
     "koa-flash": "^1.0.0",
+    "koa-flash-message": "^0.1.6",
+    "koa-multer": "^1.0.1",
     "koa-router": "7.0.1",
     "koa-session": "^3.4.0",
     "koa-static2": "^0.1.8",
@@ -24,5 +29,8 @@
     "pug": "^2.0.0-beta11",
     "sha1": "^1.1.1",
     "winston": "^2.3.1"
+  },
+  "scripts": {
+    "dev": "nodemon --harmony-async-await --trace-deprecation index.js"
   }
 }

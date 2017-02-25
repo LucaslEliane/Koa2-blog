@@ -1,42 +1,41 @@
 const checkLogin = require('../middlewares/check').checkLogin
 
 module.exports = function(router) {
-    console.log('posts')
-    router.get('/', async function(ctx, next){
+
+
+    router.get('/posts/', async function(ctx, next){
+        return ctx.render('posts', {
+            blog: {
+                title: "blog"
+            }
+        })
+    })
+
+    router.post('/posts/', checkLogin, async function(ctx, next){
         ctx.body = ctx.flash
     })
 
-    router.post('/', async function(ctx, next){
-        await checkLogin()
+    router.get('/posts/create', checkLogin, async function(ctx, next){
         ctx.body = ctx.flash
     })
 
-    router.get('/create', async function(ctx, next){
-        await checkLogin()
+    router.get('/posts/:postId', async function(ctx, next){
         ctx.body = ctx.flash
     })
 
-    router.get('/:postId', async function(ctx, next){
+    router.post('/posts/:postId/edit', checkLogin, async function(ctx, next){
         ctx.body = ctx.flash
     })
 
-    router.post('/:postId/edit', async function(ctx, next){
-        await checkLogin()
+    router.get('/posts/:postId/remove', checkLogin, async function(ctx, next){
         ctx.body = ctx.flash
     })
 
-    router.get('/:postId/remove', async function(ctx, next){
-        await checkLogin()
+    router.post('/posts/:postId/comment', checkLogin, async function(ctx, next){
         ctx.body = ctx.flash
     })
 
-    router.post('/:postId/comment', async function(ctx, next){
-        await checkLogin()
-        ctx.body = ctx.flash
-    })
-
-    router.get('/:postId/comment/:commentId/remove', async function(ctx, next){
-        await checkLogin()
+    router.get('/posts/:postId/comment/:commentId/remove', checkLogin, async function(ctx, next){
         ctx.body = ctx.flash
     })
 }

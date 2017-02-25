@@ -7,11 +7,15 @@ const path = require('path')
     , views = require('koa-views')
     , convert = require('koa-convert')
     , serve = require('koa-static2')
+    , favicon = require('koa-favicon')
+    , mongoose = require('./lib/mongo')
     , app = new Koa()
     , router = new Router()
 
 app.use(views(__dirname + '/views', { extension: 'pug'}))
-app.use(convert(serve("static", path.resolve(__dirname, '/public'))))
+app.use(convert(serve("static", __dirname + '/public')))
+app.use(convert(favicon(__dirname + '/public/favicon.ico')))
+
 app.keys = [config.keys]
 
 app.use(convert(session(config.session, app)))

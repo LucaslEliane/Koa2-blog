@@ -1,3 +1,5 @@
 include ./header.pug
-p 这是主页
+    each post in posts
+        var path= './components/post-content'+post.post
+        include path
 include ./footer.pug

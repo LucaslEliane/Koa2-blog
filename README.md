@@ -1,12 +1,17 @@
 # Koa2-blog
+
 A Koa2 demo of blog
 
 
 ## 开发过程中注意事项
+
 1. 在使用koa2的时候，会出现很多原本的中间件不兼容async-await的异步模式，所以需要使用 (koa-convert)[https://github.com/koajs/convert] 来将这些中间件转化为新版
     koa的异步模式
+
 2. mongodb启动方法：mongod --config /usr/local/etc/mongod.conf
-3. 在开发过程中，出现了一个困扰了很久的问题：运行时出现错误:  Error: Can't set headers after they are sent. 这个错误表示在响应被发送出去之后又一次进行了响应头的设置，这个问题可能出现在下面这几种情况当中：
+
+3. 在开发过程中，出现了一个困扰了很久的问题：运行时出现错误:  Error: Can't set headers after they are sent. 这个错误表示在响应被发送出去之后又一次进行了响应头的设置，这个问题可能出现在下面这几种情况当中:
+
     * 在redirect方法前面没有加return：这个问题在于redirect会将响应发送出去，如果不进行return，
         会导致后面的HTTP操作继续设置header，出现这个错误。
     * HTTP操作的顺序出现问题，导致在响应发送之后又进行了一次响应头设置，node里面出现这种问题一般

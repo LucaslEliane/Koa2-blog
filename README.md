@@ -2,6 +2,21 @@
 
 A Koa2 demo of blog
 
+## 说明
+
+该项目是根据项目：[N-blog](https://github.com/nswbmw/N-blog) 修改而成
+该项目将原本的express框架改为koa2，mongolass改为mongoose，ejs模板改为pug(也就是原来的jade模板)
+应用了es7标准可能会规范的async/await语法，也仅仅是一个用来学习nodejs的项目
+
+使用：将该repository克隆到本地目录，运行
+```
+npm install
+```
+启动mongodb数据库，并且
+```
+npm run dev
+```
+启动服务器，就可以访问`localhost:3000`了
 
 ## 开发过程中注意事项
 

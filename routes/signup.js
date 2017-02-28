@@ -69,18 +69,6 @@ module.exports = (router) => {
             avatar: avatar            
         })
 
-
-        // return userModel.save(function(err) {
-        //     console.log('save')
-        //     if (err !== null) {
-        //         fs.unlink(filepath)
-        //         ctx.body = ctx.flash
-        //         return ctx.redirect('/signup')
-        //     }
-        // })
-        // console.log('redirect')
-        // return ctx.redirect('/posts')
-
         let savePromise = function(userModel) {
             return promise = new Promise(function(resolve, reject){
                 userModel.save(function(err) {
@@ -93,7 +81,10 @@ module.exports = (router) => {
             })
         }
 
-        await savePromise(userModel).then(() => {return ctx.redirect('/signup')},
-            () => {return ctx.redirect('/posts')})
+        await savePromise(userModel).then(() => {
+            return ctx.redirect('/signup')
+        }, () => {
+            return ctx.redirect('/posts')
+        })
     })
 }

@@ -1,10 +1,10 @@
-div(class="ui-grid")
-    div(class="four wide column")
-    div(class="eight wide column")
+.ui-grid
+    .four.wide.column
+    .eight.wide.column
 
     if success
-        div(class="ui success message")
+        .ui.success.message
             p= success
     else if error
-        div(class="ui error message")
+        .ui.error.message
             p= error

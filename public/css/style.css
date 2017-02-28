@@ -76,3 +76,7 @@ a:hover {
 .post-content .tag.right a {
   color: #999;
 }
+
+.menu {
+  z-index: 99;
+}

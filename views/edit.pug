@@ -1,0 +1,17 @@
+include header.pug
+
+.ui.grid
+    .four.wide.column
+        a.avatar(href="/post?author="+post.author._id data-title= post.author.name+" | "+({m: '男', f: '女', x: '保密'})[post.author.gender] data-content= post.author.bio)
+            img.avatar(src="/static/uploads/"+post.author.avatar)
+    .eight.wide.column
+        form.ui.form.segment(method="post" action="/posts/"+post._id+"/edit")
+            .field.required
+                label 标题
+                input(type="text" name="title" value= post.title)
+            .field.required
+                label 内容
+                textarea(name="content" rows="15") #{post.content}
+            input.ui.button(type="submit" value="发布")
+
+include footer.pug

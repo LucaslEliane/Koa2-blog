@@ -13,6 +13,22 @@ module.exports = function(app) {
     require('./signout')(router)
     require('./signup')(router)
 
+    // app.use(async function(ctx, next) {
+    //     if (ctx.status === 404) {
+    //         await ctx.render('404', {
+    //             blog: {
+    //                 title: 'blog'
+    //             }
+    //         })
+    //     }
+    // })
+
+    // app.use(async function(err, ctx, next) {
+    //     await ctx.render('error', {
+    //         error: err
+    //     })
+    // })
+
     app.use(router.routes())
         .use(router.allowedMethods())
 }

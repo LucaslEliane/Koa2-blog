@@ -1,0 +1,25 @@
+.post-content
+    .ui.grid
+        .four.wide.column
+            a.avatar(href="/post?author="+post.author._id data-title= post.author.name+" | "+({m: '男', f: '女', x: '保密'})[post.author.gender] data-content= post.author.bio)
+                img.avatar(src="/static/uploads/"+post.author.avatar)
+        .eight.wide.column
+            .ui.segment
+                h3
+                    a(href="/posts/"+post._id) #{post.title}
+                pre #{post.content}
+                div
+                    span.tag #{post.created_at}
+                    span.tag.right
+                        span 浏览(#{post.pv})
+                        span 留言(#{post.commentsCount})
+
+                        if user && post.author._id && user._id.toString() === post.author._id.toString()
+                            .ui.inline.dropdown
+                                .text
+                                i.dropdown.icon
+                                .menu
+                                    .item
+                                        a(href="/posts/"+post._id+"/edit") 编辑
+                                    .item
+                                        a(href="/posts/"+post._id+"/remove") 删除

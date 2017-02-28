@@ -1,0 +1,25 @@
+.ui.grid
+    .four.wide.column
+    .eight.wide.column
+        .ui.segment
+            .ui.minimal.comments
+                h3.ui.dividing.header 留言
+
+                    each comment in comments
+                        .comment
+                            span.avatar
+                                img(src="/static/uploads/"+comment.author.avatar)
+                            .content
+                                a.author(href="/posts?author="+comment.author._id) #{comment.author.name}
+                                .metadata
+                                    span.date #{comment.created_at}
+                                .text #{comment.content}
+
+                                if user && comment.author._id && user._id.toString() === comment.author._id.toString()
+                                    .actions
+                                        a.reply(href="/posts/"+post._id+"/comment/"+comment._id+"/remove") 删除
+                    if user
+                        form.ui.reply.form(method="post" action="/posts/"+post._id+"/comment")
+                            .field
+                                textarea(name="content")
+                            input.ui.icon.button(value="留言" type="submit")

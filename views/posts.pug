@@ -1,5 +1,4 @@
 include ./header.pug
     each post in posts
-        var path= './components/post-content'+post.post
-        include path
+        include ./components/post-content.pug
 include ./footer.pug

@@ -1,13 +1,13 @@
 include header.pug
 
-div.ui.grid
-    div.four.wide.column
-    div.eight.wide.column
+.ui.grid
+    .four.wide.column
+    .eight.wide.column
         form.ui.form.segment(method="post" action="/signin")
-            div.field.required
+            .field.required
                 label 用户名
                 input(placeholder="用户名" type="text" name="name")
-            div.field.required
+            .field.required
                 label 密码
                 input(placeholder="密码" type="password" name="password")
             input.ui.button.fluid(type="submit" value="登录")
